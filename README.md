@@ -1,4 +1,159 @@
-# Netflix Clone
+# 🎬 Netflix Clone
+
+A full-stack Netflix clone application built with **React** on the frontend and **Node.js / Express** on the backend. The app supports user authentication, movie browsing via TMDB, trailer playback, and personalized watchlists, all wrapped in a responsive Netflix-style UI.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TD
+    %% Node Definitions
+    subgraph Frontend [netflix-ui : React & Redux]
+        UI[User Interface]
+        Store[Redux Toolkit]
+        Axios[Axios Client]
+    end
+
+    subgraph External [External Services]
+        TMDB((TMDB API))
+        FB((Firebase Auth))
+    end
+
+    subgraph Backend [netflix-api : Node & Express]
+        SRV[Express Server]
+        CTRL[User Controller]
+        Route[User Routes]
+    end
+
+    subgraph Database [Persistence]
+        DB[(MongoDB)]
+    end
+
+    %% Flow Connections
+    UI <--> Store
+    Store <--> Axios
+    
+    UI -- "1. Login / Signup" --> FB
+    Axios -- "2. Fetch Movies" --> TMDB
+    Axios -- "3. Sync Watchlist" --> SRV
+    
+    SRV --> Route
+    Route --> CTRL
+    CTRL <--> DB
+```
+
+---
+
+## ✨ Features
+
+* 🔐 **User Authentication**
+  Secure signup and login using Firebase Authentication.
+
+* 🎥 **Movie Browsing**
+  Browse movies by categories such as Netflix Originals, Trending, and Top Rated.
+
+* ▶️ **Video Trailers**
+  Watch movie trailers directly within the app.
+
+* 📌 **Personal Watchlist**
+  Add and manage movies in a personalized watchlist stored in MongoDB.
+
+* 📱 **Responsive Design**
+  Optimized for desktop, tablet, and mobile devices.
+
+* ⚡ **Real-time UI Updates**
+  Dynamic content loading using Redux Toolkit and Axios.
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+
+* React 18
+* Redux Toolkit (state management)
+* Styled Components
+* Axios
+* Firebase Authentication
+* React Router
+* React Icons
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB & Mongoose
+* CORS
+* Nodemon (development)
+
+---
+
+## 📋 Prerequisites
+
+Make sure you have the following installed:
+
+* **Node.js** v18 or higher (LTS recommended)
+* **MongoDB** (local installation or Docker)
+* **npm** or **yarn**
+
+---
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone <repository-url>
+cd netflix-clone
+```
+
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Environment Variables
+
+Create a `.env` file and configure the following:
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+FIREBASE_API_KEY=your_firebase_api_key
+MONGO_URI=your_mongodb_connection_string
+```
+
+---
+
+## ▶️ Running the Application
+
+### Development Mode
+
+```bash
+npm run dev
+```
+
+### Production Mode
+
+```bash
+npm start
+```
+
+---
+
+## 🌐 Access the App
+
+Open your browser and navigate to:
+
+* **Frontend:**
+  `http://localhost:3000/`
+
+* **Backend API:**
+  `http://localhost:8000/`
+
+---
 
 ### Screenshots
 
@@ -8,36 +163,37 @@
 
 ![alt text](<Screenshot from 3.png>)
 
-This project is a full-stack Netflix clone that replicates the streaming platform’s interface and functionality using [React](https://react.dev/) on the front end and [Node.js](https://nodejs.org/en) with [Express](https://expressjs.com/) on the backend. The front end displays movie thumbnails, trailers, and categories in a responsive layout, styled with [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS), and [React Icons](https://www.npmjs.com/package/react-icons). [React-Redux](https://www.npmjs.com/package/react-redux) manages state for efficient loading and user interactions, while Axios enables seamless API requests for dynamic content updates. [Firebase](https://firebase.google.com/) is used for user authentication, storing login data securely, and supporting user sessions. The backend, built with Node.js, Express, and [Mongoose](https://www.npmjs.com/package/mongoose) for MongoDB integration, handles user data and watchlists, with [CORS](https://www.npmjs.com/package/cors) ensuring secure data communication. [Nodemon](https://www.npmjs.com/package/nodemon) streamlines development by updating the server in real time. This project provides a comprehensive learning experience in front-to-back development, state management, and user authentication.
+---
 
+## 🛠 Languages & Frameworks Used
 
-## ⚙️ Requirements
+* JavaScript (ES6+)
+* React
+* Node.js
+* Express
+* MongoDB
 
-- [Npm](https://www.npmjs.com/package/download)
-- [Express](https://expressjs.com/)
-- [Nodejs](https://nodejs.org/en/download)
-- [React Icons](https://www.npmjs.com/package/react-icons)
-- [React-Redux](https://www.npmjs.com/package/react-redux)
-- [Firebase](https://firebase.google.com/) 
-- [Mongoose](https://www.npmjs.com/package/mongoose)
-- [CORS](https://www.npmjs.com/package/cors)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
+---
 
-## 🛠 Languages or Frameworks Used
+## 📌 Future Improvements
 
-#### Steps to create project and install required module:
+* User profiles and avatars
+* Movie recommendations
+* Search functionality
+* Improved caching & performance
+* CI/CD pipeline with Docker and GitHub Actions
 
-#### step 1: Start the project using the following command in your project folder:
+---
 
-  + `npm init`
+## 📄 License
 
-### 🌟 Steps to run the application -
-#### Step 2: Type the following command in terminal of your project directory:
+This project is for **educational purposes only** and is not affiliated with Netflix.
 
-+ `npm run dev` or
-+ `npm start`
+---
 
-#### Step 3: Open your web browser and type the following address in the URL bar:
+👤 Author Information 
+Name: Anthony Usoro 
+Slack Username: @anthonyusoro 
+Project: Netflix Clone.
 
-+ `http://localhost:3000/` or
-+  `http://localhost:8000/`
+---
