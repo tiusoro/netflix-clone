@@ -188,12 +188,3 @@ Open your browser and navigate to:
 ## 📄 License
 
 This project is for **educational purposes only** and is not affiliated with Netflix.
-
----
-
-👤 Author Information 
-Name: Anthony Usoro 
-Slack Username: @anthonyusoro 
-Project: Netflix Clone.
-
----
